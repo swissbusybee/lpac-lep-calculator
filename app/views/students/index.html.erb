@@ -1,0 +1,55 @@
+<body>
+  <!-- Header -->
+  <header class="primary-header container group">
+    <h1 class="title">
+      LPAC-LEP Indicator Code Calculator
+    </h1>
+  </header>
+
+  <!-- Welcome -->
+
+  <div class="row-alt">
+    <div class="welcome container">
+      <h1>Welcome!</h1>
+        <p>This calculator has been created to save teachers time and energy.
+          Please select the student's grade and the current year in the input box below and click calculate.</p>
+        <p>The following <strong>LPAC-LEP Table</strong> will update with the applicable data.</p>
+    </div>
+  </div>
+
+
+  <!-- Main Content -->
+  <div class= "main container">
+    <div class="row">
+      <div class="grid">
+
+        <div id="selection-form">
+          <%= simple_form_for @student, url: students_path, method: :get do |f| %>
+            <%= f.input :school_year, collection: Student::SCHOOL_YEARS %>
+            <%= f.input :school_grade, collection: Student::SCHOOL_GRADES %>
+            <%= f.input :lep_indicator_code, collection: Student::LEP_CODES %>
+            <%= f.button :submit, class: "btn btn-primary" %>
+          <% end %>
+        </div>
+
+        <div>
+          <% render 'table', student: @student %>
+        </div>
+
+  <!-- <div class="container">
+    Edit Grade:<input type="text" name="grade" id="grade">
+    <button>Submit Grade Edit</button>
+  </div> -->
+
+      </div>
+    </div>
+  </div>
+
+</body>
+
+<!-- Footer -->
+
+<footer class=" primary-footer container group"><small>&copy; LPAC-LEP Indicator Code Calculator</small></footer>
+
+
+

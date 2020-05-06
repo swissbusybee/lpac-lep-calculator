@@ -1,0 +1,16 @@
+<table id='table'>
+  <tbody>
+    <thead>
+      <th scope="col" id="school-year-table-header">School Year</th>
+      <th scope="col" id="grade-table-header">Grade</th>
+      <th scope="col" id="lep-indicator-code-table-header">LEP Indicator Code</th>
+    </thead>
+      <% @students.each do |student| %>
+        <tr>
+          <td><%= student.school_year %></td>
+          <td><%= student.school_grade %></td>
+          <td><%= student.lep_indicator_code %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
